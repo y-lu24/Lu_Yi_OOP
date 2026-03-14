@@ -1,6 +1,6 @@
 export class Counter {
-    constructor(selector) {
-        this.count = 0; 
+    constructor(selector, initialValue = 0) {
+        this.count = initialValue; 
         this.selector = selector;
         this.mount();
     }
@@ -9,17 +9,25 @@ export class Counter {
         const container = document.querySelector(this.selector);
 
         this.display = document.createElement("div");
-        this.button = document.createElement("button");
+        this.incrementBtn = document.createElement("button");
+        this.decrementBtn = document.createElement("button");
+        this.resetBtn = document.createElement("button");
 
         //set button text 
-        this.button.textContent = "Increment"; 
+        this.incrementBtn.textContent = "Increment"; 
+        this.decrementBtn.textContent = "Decrement";
+        this.resetBtn.textContent = "Reset";
 
-        //Append display and button into the container 
+        //Append display and buttons into the container 
         container.appendChild(this.display);
-        container.appendChild(this.button); 
+        container.appendChild(this.incrementBtn);
+        container.appendChild(this.decrementBtn);
+        container.appendChild(this.resetBtn);
 
-        //Add Event Listener
-        this.button.addEventListener("click",()=> this.increment());  
+        //Add Event Listeners
+        this.incrementBtn.addEventListener("click", () => this.increment());  
+        this.decrementBtn.addEventListener("click", () => this.decrement());
+        this.resetBtn.addEventListener("click", () => this.reset());
 
         //when this first gets mounted update the display
         this.update();
@@ -31,9 +39,43 @@ export class Counter {
         this.update(); 
     }
 
-    update () {
-        //set initial display content 
-        this.display.textContent = `Count:${this.count}`;
+    decrement() {
+        if (this.count > 0) {
+            this.count--;
+            this.update();
+        }
     }
 
+    reset() {
+        this.count = 0;
+        this.update();
+    }
+
+    update() {
+        //set initial display content 
+        this.display.textContent = `Count: ${this.count}`;
+        this.decrementBtn.classList.toggle("btn--inactive", this.count === 0);
+        this.resetBtn.classList.toggle("btn--inactive", this.count === 0);
+    }
+}
+
+export class StepCounter extends Counter {
+    constructor(selector, initialValue = 0, step = 1) {
+        super(selector, initialValue);
+        this.step = step;
+    }
+
+    increment() {
+        this.count += this.step;
+        this.update();
+    }
+
+    decrement() {
+        if (this.count - this.step >= 0) {
+            this.count -= this.step;
+        } else {
+            this.count = 0;
+        }
+        this.update();
+    }
 }
