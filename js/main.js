@@ -1,4 +1,4 @@
-import { Counter } from './counter.js';
+import { Counter } from './modules/counter.js';
 
 const counter1 = new Counter("#counter-container1");
 const counter2 = new Counter('#counter-container2');
