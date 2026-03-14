@@ -1,4 +1,7 @@
 import { Counter, StepCounter } from './modules/counter.js';
+import { pageAnimations } from './modules/animations.js';
+
+pageAnimations();
 
 const counter1 = new Counter("#counter-container1");
 const counter2 = new Counter('#counter-container2', 5);
