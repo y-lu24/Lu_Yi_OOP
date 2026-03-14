@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="initial-scale=1.0, width=device-width">
@@ -10,13 +9,53 @@
     <link href="css/main.css" rel="stylesheet">
     <script type="module" defer src="js/main.js"></script>
 </head>
-
 <body>
-    <div class="grid-con">
-        <div id="counter-container1" class="counter col-span-full m-col-span-6"></div>
-        <div id="counter-container2" class="counter col-span-full m-col-span-6"></div>
-        <div id="counter-container3" class="counter col-span-full m-col-span-6"></div>
-        <div id="counter-container4" class="counter col-span-full m-col-span-6"></div>
-    </div>
+
+    <header>
+        <nav class="doc-nav">
+            <div class="nav-logo">Counter</div>
+            <ul>
+                <li><a href="#overview">Overview</a></li>
+                <li><a href="#usage">How To Use It</a></li>
+                <li><a href="#demo">Examples</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="overview" class="section-overview">
+            <div class="grid-con">
+                <div class="col-span-full">
+                    <h2>Overview</h2>
+                    <h3>What the Counter class does</h3>
+                    <p>The Counter class is a self-contained UI component written in JavaScript. It creates and manages its own HTML elements — a display, an increment button, a decrement button, and a reset button — and mounts them into any container element you provide. Each counter tracks its own count value independently, and updates the display automatically whenever the state changes.</p>
+                    <h3>What problem it solves</h3>
+                </div>
+            </div>
+        </section>
+
+        <section id="usage" class="section-usage">
+            <div class="grid-con">
+                <div class="col-span-full">
+                    <h2>How To Use It</h2>
+                </div>
+            </div>
+        </section>
+
+        <section id="demo" class="section-demo">
+            <div class="grid-con">
+                <div class="col-span-full">
+                    <h2>Examples</h2>
+                    <p>Here are some working examples of the Counter class in action:</p>
+                </div>
+                <div id="counter-container1" class="counter col-span-full m-col-span-6"></div>
+                <div id="counter-container2" class="counter col-span-full m-col-span-6"></div>
+                <div id="counter-container3" class="counter col-span-full m-col-span-6"></div>
+                <div id="counter-container4" class="counter col-span-full m-col-span-6"></div>
+            </div>
+        </section>
+
+    </main>
+
 </body>
 </html>
