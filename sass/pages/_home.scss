@@ -1,0 +1,100 @@
+@use "../abstracts" as *;
+
+// Nav
+.doc-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px 60px;
+    background-color: #2a2a2a;
+    border-bottom: 2px solid #ff89b2;
+
+    .nav-logo {
+        color: #ff89b2;
+        font-family: 'Open Sans', Arial, sans-serif;
+        font-size: 20px;
+        font-weight: 700;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+    }
+
+    ul {
+        list-style: none;
+        display: flex;
+        gap: 40px;
+        margin: 0;
+        padding: 0;
+
+        a {
+            color: #f5f5f5;
+            text-decoration: none;
+            font-family: 'Open Sans', Arial, sans-serif;
+            font-size: 14px;
+            letter-spacing: 1px;
+
+            &:hover {
+                color: #ff89b2;
+            }
+        }
+    }
+}
+
+// Sections
+.section-overview,
+.section-usage,
+.section-demo {
+    padding: 60px 60px;
+    color: #333;
+
+    h2 {
+        color: #ff89b2;
+        font-size: 32px;
+        margin-bottom: 20px;
+    }
+
+    h3 {
+        color: #2a2a2a;
+        font-size: 18px;
+        margin-top: 30px;
+        margin-bottom: 10px;
+    }
+
+    p {
+        font-family: 'Open Sans', Arial, sans-serif;
+        line-height: 1.7;
+        color: #555;
+    }
+}
+
+.section-overview {
+    background-color: #fafafa;
+    border-bottom: 1px solid #eee;
+}
+
+.section-usage {
+    background-color: #f4f4f4;
+    border-bottom: 1px solid #eee;
+}
+
+.section-demo {
+    background-color: #fafafa;
+}
+
+// Responsive
+@media (max-width: $breakpoint-mobile) {
+    .doc-nav {
+        flex-direction: column;
+        gap: 15px;
+        padding: 20px;
+
+        ul {
+            gap: 15px;
+        }
+    }
+
+    .section-overview,
+    .section-usage,
+    .section-demo {
+        padding: 40px 20px;
+    }
+}
