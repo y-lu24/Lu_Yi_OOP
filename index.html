@@ -10,7 +10,6 @@
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollToPlugin.min.js"></script>
-<script type="module" defer src="js/main.js"></script>
     <script type="module" defer src="js/main.js"></script>
 </head>
 <body>
@@ -27,6 +26,7 @@
     </header>
 
     <main>
+
         <section id="overview" class="section-overview">
             <div class="grid-con">
                 <div class="col-span-full">
@@ -34,6 +34,7 @@
                     <h3>What the Counter class does</h3>
                     <p>The Counter class is a self-contained UI component written in JavaScript. It creates and manages its own HTML elements — a display, an increment button, a decrement button, and a reset button — and mounts them into any container element you provide. Each counter tracks its own count value independently, and updates the display automatically whenever the state changes.</p>
                     <h3>What problem it solves</h3>
+                    <p>Without OOP, building multiple counters on the same page means repeating DOM manipulation and event listener code for every single instance. The Counter class encapsulates all of that logic in one place — you instantiate as many counters as you need with a single line each, and they all work independently without interfering with each other.</p>
                 </div>
             </div>
         </section>
@@ -42,6 +43,25 @@
             <div class="grid-con">
                 <div class="col-span-full">
                     <h2>How To Use It</h2>
+
+                    <h3>HTML</h3>
+                    <pre><code>&lt;div id="counter-container1" class="counter"&gt;&lt;/div&gt;</code></pre>
+
+                    <h3>JavaScript</h3>
+                    <pre><code>import { Counter, StepCounter } from './modules/counter.js';
+
+const counter1 = new Counter("#counter-container1");
+const counter2 = new Counter("#counter-container2", 5);
+const counter3 = new Counter("#counter-container3", 10);
+const counter4 = new StepCounter("#counter-container4", 0, 5);</code></pre>
+
+                    <h3>Parameters</h3>
+                    <p><strong>Counter (selector, initialValue)</strong></p>
+                    <p>selector — required. A CSS selector string matching the container element, e.g. "#counter-container1".</p>
+                    <p>initialValue — optional. The starting count value. Defaults to 0.</p>
+                    <p><strong>StepCounter (selector, initialValue, step)</strong></p>
+                    <p>Extends Counter. Accepts all the same parameters plus one more.</p>
+                    <p>step — optional. The amount to increment or decrement by. Defaults to 1.</p>
                 </div>
             </div>
         </section>
@@ -60,6 +80,14 @@
         </section>
 
     </main>
+
+    <footer>
+    <div class="grid-con">
+        <div class="col-span-full">
+            <p>&copy; 2026 Yi Lu</p>
+        </div>
+    </div>
+    </footer>
 
 </body>
 </html>
